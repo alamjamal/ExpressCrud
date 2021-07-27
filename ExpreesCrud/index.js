@@ -32,3 +32,5 @@ app.use('/', home);
 app.listen(3000,'localhost', ()=>{
     console.log("connection is created");
 });
+
+//alam
