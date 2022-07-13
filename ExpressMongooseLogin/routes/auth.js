@@ -4,7 +4,6 @@ const bcrypt= require('bcryptjs');
 const authRouter = express.Router();
 
 const authValidate = require("../validation/authValidation");
-
 const AuthMongoose= require('../model/auth.model')
 
 //2. post for signup
@@ -47,7 +46,7 @@ authRouter.post("/login", async (req, res) => {
     //create and assign token
     // const token = jwt.sign({_id:user.id}, process.env.TOKEN_SECRET);
     const token = user.generateToken();
-    res.json({user:"user found", token : token});
+    res.json({user:user, token : token});
     // res.header('auth-token', token).send()
 
 });

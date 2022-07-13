@@ -1,6 +1,5 @@
 
 function authValidate(data) {
-   
     if(Object.keys(data).length === 0){
         return  {result:"FAILD", message:"Nothing Passed"}}
     else if(Object.keys(data).length > 7){
