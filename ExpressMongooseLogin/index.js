@@ -1,9 +1,12 @@
 //express
 const express=require('express');
 const app=express();
+
+const cors = require('cors');
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-
+app.use(cors());
 //connnection
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/demo', {useUnifiedTopology: true,useNewUrlParser:true})
