@@ -3,9 +3,9 @@ function authValidate(data) {
    
     if(Object.keys(data).length === 0){
         return  {result:"FAILD", message:"Nothing Passed"}}
-    else if(Object.keys(data).length > 3){
-        return  {result:"FAILD", message:" You Can't Enter More Than 3 Fields"}}
-    else if (!('name' in data) || !('email' in data) || !('password' in data)){
+    else if(Object.keys(data).length > 7){
+        return  {result:"FAILD", message:" You Can't Enter More Than 6 Fields"}}
+    else if (!('username' in data) || !('email' in data) || !('password' in data)){
         return  {result:"FAILD", message:"Name / Email / Password Mandatory"}}
     else if(data.name=="" || data.email=="" || data.password==""){
         return  {result:"FAILD", message:"Please Enter Value"}

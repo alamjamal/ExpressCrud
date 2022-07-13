@@ -2,11 +2,17 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const registerSchema= new mongoose.Schema({
-    username: {type: String,},
-    password:{type:String,},
-    email:{type : String},
-    isPurchased :{type:Boolean,default:false}
-});
+    user_type:{type : String , required: true, trim: true},
+    organisation : {type: String, trim: true},
+    username: {type: String, required: true, trim: true},
+    mobile:{type : String,required: true, trim: true},
+    email:{type : String, required: true, trim: true},
+    password:{type:String,required: true, trim: true},
+    // isPurchased :{type:Boolean,default:false}
+    },
+  {
+    timestamps: true
+  });
 
 registerSchema.methods.generateToken = function() {
 

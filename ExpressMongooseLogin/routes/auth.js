@@ -12,13 +12,20 @@ authRouter.post("/register", async (req, res) => {
     const error  = authValidate(req.body);
     if (error.result==="FAILD")return res.status(404).json(error)
 
-const checkEmail = await AuthMongoose.findOne({email:req.body.email})
-if(checkEmail) return res.json('email already present')
+// const checkEmail = await AuthMongoose.findOne({email:req.body.email})
+// if(checkEmail) return res.json('email already present')
+
+const checkMobile = await AuthMongoose.findOne({mobile:req.body.mobile})
+if(checkMobile) return res.json('Mobile already presents')
+
 
 const salt = await bcrypt.genSalt(10);
 const hashPassword= await bcrypt.hash(req.body.password, salt);
 const authMongoose = new AuthMongoose({
+    user_type:req.body.user_type,
+    organisation:req.body.organisation,
     username: req.body.username,
+    mobile : req.body.mobile,
     email: req.body.email,
     password : hashPassword
 });
