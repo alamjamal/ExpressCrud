@@ -47,7 +47,8 @@ authRouter.post("/login", async (req, res) => {
     //create and assign token
     // const token = jwt.sign({_id:user.id}, process.env.TOKEN_SECRET);
     const token = user.generateToken();
-    res.header('auth-token', token).send()
+    res.json({user:"user found", token : token});
+    // res.header('auth-token', token).send()
 
 });
 module.exports = authRouter;
